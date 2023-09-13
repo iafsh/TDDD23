@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 1239054491}
   - component: {fileID: 1239054490}
   - component: {fileID: 1239054489}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 1451243818}
   - component: {fileID: 1451243817}
   - component: {fileID: 1451243820}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pushable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -623,4 +623,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 803a1b32e4150fc4fb41201decfd46fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpPower: 0
+  jumpPower: 30

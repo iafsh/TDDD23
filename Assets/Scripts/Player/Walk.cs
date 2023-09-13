@@ -5,6 +5,8 @@ using UnityEngine;
 public class Walk : MonoBehaviour
 {
     [SerializeField] private float Speed;
+
+    private bool allowedToMove;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,14 +16,18 @@ public class Walk : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.D))
+        allowedToMove = (!this.GetComponent<Jump>().OnAirGiver) && !Input.GetKeyDown(KeyCode.Space);
+        if (allowedToMove)
         {
-            this.GetComponent<Rigidbody2D>().velocity = Vector2.right * Speed;
-        }
+            if (Input.GetKey(KeyCode.D))
+            {
+                this.GetComponent<Rigidbody2D>().velocity = Vector2.right * Speed;
+            }
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            this.GetComponent<Rigidbody2D>().velocity = Vector2.left * Speed;
+            if (Input.GetKey(KeyCode.A))
+            {
+                this.GetComponent<Rigidbody2D>().velocity = Vector2.left * Speed;
+            }
         }
     }
 }
