@@ -14,9 +14,9 @@ public class Walk : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        allowedToMove = (!this.GetComponent<Jump>().OnAirGiver) && !Input.GetKeyDown(KeyCode.Space);
+        allowedToMove = (!this.GetComponent<Jump>().OnAirGiver) && !Input.GetKey(KeyCode.Space);
         if (allowedToMove)
         {
             if (Input.GetKey(KeyCode.D))
