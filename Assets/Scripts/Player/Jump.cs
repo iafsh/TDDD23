@@ -10,8 +10,7 @@ public class Jump : MonoBehaviour
     
     void Update()
     {
-        print(OnAir);
-        
+
         if (Input.GetKeyDown(KeyCode.Space) && !OnAir)
         {
             
