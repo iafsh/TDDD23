@@ -11,7 +11,7 @@ public class Jump : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Space) && !OnAir)
+        if (( Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) && !OnAir)
         {
             
             this.GetComponent<Rigidbody2D>().AddForce(jumpPower*Vector2.up,ForceMode2D.Impulse);
