@@ -18,7 +18,7 @@ public class MovementSaver : MonoBehaviour
     
     void Update()
     {
-        print(movementStack);
+        //print(movementStack);
         if (Input.GetKeyDown(KeyCode.C))
         {
             print("pushed");
@@ -44,7 +44,7 @@ public class MovementSaver : MonoBehaviour
         if (Time.time - startingTimeCounter > savingTimeLimit)
         {
             isRecording = false;
-            print(movementStack);
+            //print(movementStack);
         }
         movementStack.Push(playerTransform.position);
     }
