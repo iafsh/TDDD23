@@ -308,10 +308,10 @@ RectTransform:
   m_Father: {fileID: 1394712124}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -531.41, y: 309.5}
-  m_SizeDelta: {x: 61.1803, y: 59.9959}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 31.090027, y: -30.5}
+  m_SizeDelta: {x: 61.180298, y: 59.99591}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &456762173
 MonoBehaviour:
@@ -444,7 +444,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: -12.85199}
+  m_AnchoredPosition: {x: 0, y: -12.85199}
   m_SizeDelta: {x: -981.2792, y: -619.4127}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &490836029
@@ -552,6 +552,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -625,6 +626,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f683bf0cb620557795f0e8c298e09ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1822383030}
+  yOffset: 1
+  xOffsetFactor: 0.2
+  smoothSpeed: 0.125
 --- !u!1 &806708614
 GameObject:
   m_ObjectHideFlags: 0
@@ -1989,7 +2006,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: 45.734985}
+  m_AnchoredPosition: {x: 0, y: 45.734985}
   m_SizeDelta: {x: -981.2792, y: -619.4127}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2092729004
