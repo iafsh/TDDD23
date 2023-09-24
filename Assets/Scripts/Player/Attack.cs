@@ -5,8 +5,6 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
     private Animator animator;
-    private float attackDuration = 0.16f;//According to the animation 
-    private Coroutine attackCoroutine;
     private float cooldownTimer = Mathf.Infinity;
     [SerializeField] public float attackCooldown;
     // Start is called before the first frame update
