@@ -6,6 +6,7 @@ using UnityEngine;
 public class Jump : MonoBehaviour
 {
     [SerializeField] private float jumpPower = 20;
+    [SerializeField] private AudioSource jumpSoundEffect;
     private bool OnAir=true;
     
     void Update()
@@ -13,7 +14,7 @@ public class Jump : MonoBehaviour
 
         if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space )) && !OnAir)
         {
-            
+            jumpSoundEffect.Play();
             this.GetComponent<Rigidbody2D>().AddForce(jumpPower*Vector2.up,ForceMode2D.Impulse);
         }
     }
