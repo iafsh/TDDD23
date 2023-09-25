@@ -4215,10 +4215,10 @@ RectTransform:
   m_Father: {fileID: 401415710}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 954, y: 486}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1455884880
 MonoBehaviour:
@@ -4270,6 +4270,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4005885f00305045b8ecce60714e658, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttons:
+  - {fileID: 1514412025}
+  - {fileID: 1075105595}
+  - {fileID: 273818583}
+  - {fileID: 334995148}
+  - {fileID: 797369317}
+  - {fileID: 700592030}
+  - {fileID: 195756928}
+  - {fileID: 174511470}
+  - {fileID: 1629285326}
+  - {fileID: 1161621235}
 --- !u!1 &1514412023
 GameObject:
   m_ObjectHideFlags: 0
@@ -5824,7 +5835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
