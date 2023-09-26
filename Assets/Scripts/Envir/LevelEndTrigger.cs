@@ -1,18 +1,24 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelEndTrigger : MonoBehaviour
 {
     [SerializeField] private AudioSource levelPassSoundEffect;
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if (collision.tag == "Player")
         {
-            levelPassSoundEffect.Play();
+            // Get the bounds of the player and the door
+            Bounds playerBounds = collision.bounds;
+            Bounds doorBounds = GetComponent<Collider2D>().bounds;
 
-            StartCoroutine(LoadNextSceneAfterAudio());
+            // Check if the player is completely within the bounds of the door
+            if (doorBounds.Contains(playerBounds.min) && doorBounds.Contains(playerBounds.max))
+            {
+                levelPassSoundEffect.Play();
+                StartCoroutine(LoadNextSceneAfterAudio());
+            }
         }
     }
 
@@ -31,7 +37,7 @@ public class LevelEndTrigger : MonoBehaviour
         int nextSceneIndex = (currentSceneIndex + 1) % sceneCount;
 
         // Update the unlocked level in PlayerPrefs
-        if (nextSceneIndex < sceneCount)
+        if (currentSceneIndex < sceneCount)
         {
             PlayerPrefs.SetInt("UnlockedLevel", PlayerPrefs.GetInt("UnlockedLevel", 1) + 1);
         }
