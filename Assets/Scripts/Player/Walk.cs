@@ -27,7 +27,7 @@ public class Walk : MonoBehaviour
         Speed = Input.GetAxisRaw("Horizontal");
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            if (!towardRight)
+            if (!towardRight && this.transform.tag=="Player")
             {
                 spriteRenderer.flipX = false;
                 towardRight = true;
@@ -35,7 +35,7 @@ public class Walk : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            if (towardRight)
+            if (towardRight&& this.transform.tag=="Player")
             {
                 spriteRenderer.flipX = true;
                 towardRight = false;

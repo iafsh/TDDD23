@@ -16,6 +16,7 @@ public class PressButton : MonoBehaviour
 
     void Update()
     {
+        print(playerCenterToFoot);
         if (pushAllow)
         {
             this.GetComponent<SpriteRenderer>().color=Color.red;
@@ -28,9 +29,11 @@ public class PressButton : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {   
-        //object is aplayer and is on top of this
-        if (collision.transform.tag == "Player")
+        print("clone is on me");
+        //object is player or clone and is on top of this
+        if (collision.gameObject.layer == 6)
         {
+            
             if (collision.transform.position.y-playerCenterToFoot >= transform.position.y)
             {
                 pushAllow = true;
@@ -45,7 +48,7 @@ public class PressButton : MonoBehaviour
     private void OnCollisionExit2D(Collision2D other)
     {
         
-        if (other.transform.tag == "Player")
+        if (other.gameObject.layer==6)
         {
             pushAllow = false;
         }
