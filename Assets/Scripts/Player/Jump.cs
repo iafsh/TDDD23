@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Jump : MonoBehaviour
 {
-    [SerializeField] private float jumpPower = 20;
+    [SerializeField] private float jumpPower;
     [SerializeField] private AudioSource jumpSoundEffect;
     private bool OnAir=true;
     
