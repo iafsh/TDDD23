@@ -8,6 +8,7 @@ public class MovementSaver : MonoBehaviour
     //number of seconds user is allowed to save
     [SerializeField] private int savingTimeLimit;
     private float startingTimeCounter;
+    private float RecordingTimePeriod;
     private List<Vector3> movementList=new List<Vector3>();
     private Transform playerTransform;
     private CloneSpawner cloneSpawnerSC;
@@ -32,6 +33,7 @@ public class MovementSaver : MonoBehaviour
             if (isRecording)
             {
                 isRecording = false;
+                RecordingTimePeriod = Time.time - startingTimeCounter;
                 cloneSpawnerSC.GobackToStartPosition();
             }
             else
@@ -52,16 +54,19 @@ public class MovementSaver : MonoBehaviour
         if (Time.time - startingTimeCounter > savingTimeLimit)
         {
             isRecording = false;
+            RecordingTimePeriod = savingTimeLimit;
             cloneSpawnerSC.GobackToStartPosition();
 
         }
         else
         {
             movementList.Add(playerTransform.position);
+            movementList.Add(playerTransform.position);
         }
     }
 
     public List<Vector3> MovementListGiver => movementList;
+    public float RecordingTimePeriodGiver => RecordingTimePeriod;
     
     public bool EraseData
     {
@@ -74,4 +79,6 @@ public class MovementSaver : MonoBehaviour
             }
         }
     }
+
+
 }

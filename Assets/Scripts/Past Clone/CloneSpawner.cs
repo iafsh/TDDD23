@@ -8,12 +8,13 @@ using UnityEngine;
 public class CloneSpawner : MonoBehaviour
 
 {
+    [SerializeField] private float CloneSpeed;
     public bool MovementsSaved = false;
     private Stack<Vector3> movementStack;
     private Queue<Vector3> movementQueue;
     private MovementSaver movementSaverSC;
     private bool playFromStart = false;
-    
+    private float timeBetweenFrames;
     public bool CloneisMoving = false;
 
 
@@ -50,6 +51,7 @@ public class CloneSpawner : MonoBehaviour
     {
         print("Gobacktostartposition has been called");
         this.transform.position = movementSaverSC.MovementListGiver[0];
+        timeBetweenFrames = Time.deltaTime-(movementSaverSC.RecordingTimePeriodGiver)/(movementSaverSC.MovementListGiver.Count-1);
         apearClone();
         goToEndPosition();
         //CloneisMoving = true;
@@ -66,8 +68,9 @@ public class CloneSpawner : MonoBehaviour
         while (movementQueue.Count != 0)
         {
 
-            this.transform.position = movementQueue.Dequeue();
-            yield return new WaitForSeconds(.01f);
+            this.transform.position = Vector3.Lerp(transform.position,movementQueue.Dequeue(),1f);
+            print(Time.deltaTime);
+            yield return new WaitForSeconds(Time.deltaTime-timeBetweenFrames);
 
         }
 

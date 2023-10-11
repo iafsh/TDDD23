@@ -150,5 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e05e0172aef5a84d962ca9851335567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CloneSpeed: 70
   MovementsSaved: 0
   CloneisMoving: 0

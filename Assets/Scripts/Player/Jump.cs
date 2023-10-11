@@ -21,7 +21,7 @@ public class Jump : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.transform.gameObject.layer == 7)
+        if (col.transform.gameObject.layer == 7 || col.transform.gameObject.layer == 6)
         {
             OnAir = false;
         }
@@ -30,8 +30,8 @@ public class Jump : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        //environment layer
-        if (collision.transform.gameObject.layer == 7)
+        //environment layer or clone
+        if (collision.transform.gameObject.layer == 7 || collision.transform.gameObject.layer == 6)
         {
             OnAir = false;
         }
@@ -39,7 +39,7 @@ public class Jump : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.transform.gameObject.layer == 7)
+        if (other.transform.gameObject.layer == 7 || other.transform.gameObject.layer == 6)
         {
             OnAir = true;
         }
