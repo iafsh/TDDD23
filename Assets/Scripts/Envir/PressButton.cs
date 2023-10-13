@@ -29,7 +29,7 @@ public class PressButton : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {   
-        print("clone is on me");
+        
         //object is player or clone and is on top of this
         if (collision.gameObject.layer == 6)
         {

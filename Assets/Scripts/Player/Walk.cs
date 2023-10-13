@@ -65,4 +65,6 @@ public class Walk : MonoBehaviour
 
     }
 
+    public bool TowardRightGiver => towardRight;
+
 }
