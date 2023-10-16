@@ -12,6 +12,7 @@ public class CloneSpawner : MonoBehaviour
     public bool MovementsSaved = false;
     private Stack<Vector3> movementStack;
     private Queue<Vector3> movementQueue;
+    private Queue<Vector3> velocityQueue;
     private MovementSaver movementSaverSC;
     private bool playFromStart = false;
     private float timeBetweenFrames;
@@ -68,7 +69,8 @@ public class CloneSpawner : MonoBehaviour
         while (movementQueue.Count != 0)
         {
 
-            this.transform.position = Vector3.Lerp(transform.position,movementQueue.Dequeue(),1f);
+            this.transform.position = movementQueue.Dequeue();
+            this.GetComponent<Rigidbody2D>().velocity = velocityQueue.Dequeue();
             print(Time.deltaTime);
             yield return new WaitForSeconds(Time.deltaTime-timeBetweenFrames);
 
@@ -86,6 +88,7 @@ public class CloneSpawner : MonoBehaviour
         print("Go to end position has been called");
         playFromStart = true;
         movementQueue = new Queue<Vector3>(movementSaverSC.MovementListGiver);
+        velocityQueue = new Queue<Vector3>(movementSaverSC.VelocityListGiver);
         StartCoroutine(MoveToEnd());
 
 

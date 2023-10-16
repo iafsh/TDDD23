@@ -10,12 +10,15 @@ public class MovementSaver : MonoBehaviour
     private float startingTimeCounter;
     private float RecordingTimePeriod;
     private List<Vector3> movementList=new List<Vector3>();
+    private List<Vector3> velocityList=new List<Vector3>();
+    private Rigidbody2D playerRigidbody;
     private Transform playerTransform;
     private CloneSpawner cloneSpawnerSC;
     
     void Awake()
     {
         playerTransform=GameObject.Find("Player").transform;
+        playerRigidbody = GameObject.Find("Player").GetComponent<Rigidbody2D>();
         cloneSpawnerSC = FindObjectOfType<CloneSpawner>();
     }
     
@@ -61,11 +64,13 @@ public class MovementSaver : MonoBehaviour
         else
         {
             movementList.Add(playerTransform.position);
-            movementList.Add(playerTransform.position);
+            velocityList.Add(playerRigidbody.velocity);
+            //movementList.Add(playerTransform.position);
         }
     }
 
     public List<Vector3> MovementListGiver => movementList;
+    public List<Vector3> VelocityListGiver => velocityList;
     public float RecordingTimePeriodGiver => RecordingTimePeriod;
     
     public bool EraseData
@@ -75,6 +80,7 @@ public class MovementSaver : MonoBehaviour
             if (value)
             {
                 movementList.Clear();
+                velocityList.Clear();
                 isRecording = false;
             }
         }
