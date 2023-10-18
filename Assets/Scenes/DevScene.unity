@@ -1389,8 +1389,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   profiles:
   - {fileID: 11400000, guid: e41620de428e891458b2317263eeb944, type: 2}
-  - {fileID: 11400000, guid: 4382120a39ae55448b96c82944b231dc, type: 2}
   - {fileID: 11400000, guid: 4b8fa0853baa6b148a9bb164541a7a61, type: 2}
+  - {fileID: 11400000, guid: 4382120a39ae55448b96c82944b231dc, type: 2}
 --- !u!114 &1096447126
 MonoBehaviour:
   m_ObjectHideFlags: 0
