@@ -83,6 +83,8 @@ SpriteAtlas:
   - {fileID: 1353708391, guid: 9ae0fda2a2bb9b54ba55ad48ac8d0bc3, type: 3}
   - {fileID: 1867465554, guid: 9ae0fda2a2bb9b54ba55ad48ac8d0bc3, type: 3}
   - {fileID: 1248619367, guid: 9ae0fda2a2bb9b54ba55ad48ac8d0bc3, type: 3}
+  - {fileID: -1292033628, guid: 9ae0fda2a2bb9b54ba55ad48ac8d0bc3, type: 3}
+  - {fileID: -214667828, guid: 9ae0fda2a2bb9b54ba55ad48ac8d0bc3, type: 3}
   - {fileID: -925570420, guid: 9ae0fda2a2bb9b54ba55ad48ac8d0bc3, type: 3}
   - {fileID: 1478988591, guid: 9ae0fda2a2bb9b54ba55ad48ac8d0bc3, type: 3}
   - {fileID: -1483947803, guid: 9ae0fda2a2bb9b54ba55ad48ac8d0bc3, type: 3}
@@ -217,6 +219,8 @@ SpriteAtlas:
   - Dungeon Tile Set_7
   - Dungeon Tile Set_8
   - Dungeon Tile Set_9
+  - Closed Door
+  - Open Door
   - Dungeon Tile Set_62
   - Dungeon Tile Set_13
   - Dungeon Tile Set_63

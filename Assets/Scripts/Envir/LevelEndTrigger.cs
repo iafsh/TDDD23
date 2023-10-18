@@ -5,9 +5,10 @@ using UnityEngine.SceneManagement;
 public class LevelEndTrigger : MonoBehaviour
 {
     [SerializeField] private AudioSource levelPassSoundEffect;
+
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
             // Get the bounds of the player and the door
             Bounds playerBounds = collision.bounds;

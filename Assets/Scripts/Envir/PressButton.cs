@@ -2,57 +2,45 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PressButton : MonoBehaviour
 {
-    private bool pushAllow = false;
+    [SerializeField] UnityEvent EmitPress;
+    [SerializeField] UnityEvent EmitUnpress;
+
     private float playerCenterToFoot;
-    
+
 
     private void Awake()
     {
         playerCenterToFoot = GameObject.FindWithTag("Player").GetComponent<Collider2D>().bounds.extents.y;
     }
 
-    void Update()
-    {
-        print(playerCenterToFoot);
-        if (pushAllow)
-        {
-            this.GetComponent<SpriteRenderer>().color=Color.red;
-        }
-        else
-        {
-            this.GetComponent<SpriteRenderer>().color=Color.white;
-        }
-    }
-
     private void OnCollisionStay2D(Collision2D collision)
-    {   
-        
+    {
         //object is player or clone and is on top of this
         if (collision.gameObject.layer == 6)
         {
-            
-            if (collision.transform.position.y-playerCenterToFoot >= transform.position.y)
+            if (collision.transform.position.y - playerCenterToFoot >= transform.position.y)
             {
-                pushAllow = true;
+                EmitPress?.Invoke();
+                GetComponent<SpriteRenderer>().color = Color.red;
             }
             else
             {
-                pushAllow = false;
+                EmitUnpress?.Invoke();
+                GetComponent<SpriteRenderer>().color = Color.white;
             }
         }
     }
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        
-        if (other.gameObject.layer==6)
+        if (other.gameObject.layer == 6)
         {
-            pushAllow = false;
+            EmitUnpress?.Invoke();
+            GetComponent<SpriteRenderer>().color = Color.white;
         }
     }
-    
-    
 }
