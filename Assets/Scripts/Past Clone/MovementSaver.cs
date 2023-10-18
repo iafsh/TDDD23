@@ -40,10 +40,9 @@ public class MovementSaver : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         WalkSC = FindObjectOfType<Walk>();
     }
-    
-    void Update()
-    {
-        print("isRecording:"+isRecording);
+
+    void Update() {
+        // print("isRecording:"+isRecording);
         if (cloneSpawnerSC.CloneisMoving)
         {
             isRecording = false;
@@ -64,7 +63,10 @@ public class MovementSaver : MonoBehaviour
                 startingTimeCounter=Time.time;
             }
         }
-
+    }
+    
+    void FixedUpdate()
+    {
         if (isRecording)
         {
             Saver();

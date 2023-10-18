@@ -54,7 +54,7 @@ public class CloneSpawner : MonoBehaviour
     {
         print("Gobacktostartposition has been called");
         this.transform.position = movementSaverSC.MovementListGiver[0];
-        timeBetweenFrames = Time.deltaTime-(movementSaverSC.RecordingTimePeriodGiver)/(movementSaverSC.MovementListGiver.Count-1);
+        timeBetweenFrames = movementSaverSC.RecordingTimePeriodGiver/movementSaverSC.MovementListGiver.Count;
         apearClone();
         goToEndPosition();
         //CloneisMoving = true;
@@ -81,7 +81,7 @@ public class CloneSpawner : MonoBehaviour
             {
                 spriteRenderer.flipX = true;
             }
-            yield return new WaitForSeconds(Time.deltaTime-timeBetweenFrames);
+            yield return new WaitForSeconds(timeBetweenFrames * 2); // TODO... WTF
 
         }
 
