@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class LevelSaver : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    public void SavePrefs()
     {
-        
+        PlayerPrefs.SetInt("Volume", 50);
+        PlayerPrefs.Save();
     }
-
-    // Update is called once per frame
-    void Update()
+ 
+    public void LoadPrefs()
     {
-        
+        int volume = PlayerPrefs.GetInt("Volume", 0); 
     }
 }
