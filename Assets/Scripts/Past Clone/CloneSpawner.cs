@@ -13,15 +13,17 @@ public class CloneSpawner : MonoBehaviour
     private Stack<Vector3> movementStack;
     private Queue<Vector3> movementQueue;
     private Queue<Vector3> velocityQueue;
+    private Queue<bool> spriteFliperQueue;
     private MovementSaver movementSaverSC;
     private bool playFromStart = false;
     private float timeBetweenFrames;
     public bool CloneisMoving = false;
-
+    private SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
         movementSaverSC = FindObjectOfType<MovementSaver>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         disappearClone();
     }
 
@@ -71,7 +73,14 @@ public class CloneSpawner : MonoBehaviour
 
             this.transform.position = movementQueue.Dequeue();
             this.GetComponent<Rigidbody2D>().velocity = velocityQueue.Dequeue();
-            print(Time.deltaTime);
+            if (spriteFliperQueue.Dequeue()==true)
+            {
+                spriteRenderer.flipX=false;
+            }
+            else
+            {
+                spriteRenderer.flipX = true;
+            }
             yield return new WaitForSeconds(Time.deltaTime-timeBetweenFrames);
 
         }
@@ -89,6 +98,7 @@ public class CloneSpawner : MonoBehaviour
         playFromStart = true;
         movementQueue = new Queue<Vector3>(movementSaverSC.MovementListGiver);
         velocityQueue = new Queue<Vector3>(movementSaverSC.VelocityListGiver);
+        spriteFliperQueue = new Queue<bool>(movementSaverSC.SpriteFliperListGiver);
         StartCoroutine(MoveToEnd());
 
 
