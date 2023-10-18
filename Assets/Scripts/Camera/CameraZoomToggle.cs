@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CameraZoomToggle : MonoBehaviour
 {
-    [SerializeField] private float defaultSize = 6f;
-    [SerializeField] private float zoomedOutSize = 10f;
+    [SerializeField] private float defaultSize = 4f;
+    [SerializeField] private float zoomedOutSize = 8f;
     [SerializeField] private float zoomSpeed = 2f;
     [SerializeField] private Transform playerTransform;
     [SerializeField] private Vector3 cameraOffset = new Vector3(0, 2, 0);
