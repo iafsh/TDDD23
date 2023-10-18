@@ -16,7 +16,7 @@ public class PressButton : MonoBehaviour
 
     void Update()
     {
-        print(playerCenterToFoot);
+        //print(playerCenterToFoot);
         if (pushAllow)
         {
             this.GetComponent<SpriteRenderer>().color=Color.red;

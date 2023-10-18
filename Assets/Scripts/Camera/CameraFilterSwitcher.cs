@@ -14,7 +14,7 @@ public class CameraFilterSwitcher : MonoBehaviour
         volume = GetComponent<PostProcessVolume>();
         if (profiles.Length > 0)
         {
-            volume.profile = profiles[currentProfileIndex];
+            SetProfile(currentProfileIndex);
         }
     }
 
@@ -28,7 +28,28 @@ public class CameraFilterSwitcher : MonoBehaviour
 
     private void SwitchFilter()
     {
+        // Increment the index and loop around if necessary
         currentProfileIndex = (currentProfileIndex + 1) % profiles.Length;
-        volume.profile = profiles[currentProfileIndex];
+        SetProfile(currentProfileIndex);
+    }
+
+    private void SetProfile(int index)
+    {
+        // Disable all effects in the current profile
+        foreach (var effect in volume.profile.settings)
+        {
+            effect.active = false;
+        }
+
+        // Set the volume's profile to the new one
+        volume.profile = profiles[index];
+
+        // Enable all effects in the new profile
+        foreach (var effect in volume.profile.settings)
+        {
+            effect.active = true;
+        }
+
+        Debug.Log("Switched to profile: " + index);
     }
 }

@@ -99,3 +99,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smoothSpeed: 0.125
   target: {fileID: 0}
+  Walls: {fileID: 0}
