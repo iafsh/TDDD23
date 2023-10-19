@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
 public class CameraFilterSwitcher : MonoBehaviour
 {
-    public PostProcessProfile[] profiles; // Assign your different profiles here
+    public PostProcessProfile[] profiles; // Drag your profiles here in the Inspector
     private PostProcessVolume volume;
     private int currentProfileIndex = 0;
 
