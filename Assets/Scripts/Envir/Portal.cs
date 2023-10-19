@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -32,29 +33,6 @@ public class Portal : MonoBehaviour
         destinationExtent = new Vector3(DestinationPortal.GetComponent<Collider2D>().bounds.extents.x, 0, 0);
         destinationPosition = DestinationPortal.transform.position;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-        
-            if (myCollider.bounds.Contains(playerCollider.bounds.min) &&
-                myCollider.bounds.Contains(playerCollider.bounds.max))
-            {
-                GetComponent<SpriteRenderer>().color = Color.cyan;
-                Mover();
-                
-            }
-            else
-            {
-                GetComponent<SpriteRenderer>().color = Color.yellow;
-            }
-            //Waiter();
-
-            
-    }
-
-
     private void Mover()
     {
         if (playeRenderer.enabled)
@@ -80,6 +58,19 @@ public class Portal : MonoBehaviour
         //     playeRenderer.enabled = true;
         // }
 
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            print("Player is here");
+            if (myCollider.bounds.Contains(playerCollider.bounds.min) &&
+                myCollider.bounds.Contains(playerCollider.bounds.max))
+            {
+                Mover();
+            }
+        }
     }
 
     // private bool Waiter()
