@@ -668,6 +668,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1096447123}
   - component: {fileID: 1096447125}
+  - component: {fileID: 1096447126}
   m_Layer: 8
   m_Name: PostProcessingVolume
   m_TagString: Untagged
@@ -702,6 +703,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c88b3dafc002e8488867cace908dcb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  profiles:
+  - {fileID: 11400000, guid: e41620de428e891458b2317263eeb944, type: 2}
+  - {fileID: 11400000, guid: 4382120a39ae55448b96c82944b231dc, type: 2}
+  - {fileID: 11400000, guid: 4b8fa0853baa6b148a9bb164541a7a61, type: 2}
+--- !u!114 &1096447126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096447121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 0}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
 --- !u!1 &1192470339
 GameObject:
   m_ObjectHideFlags: 0
