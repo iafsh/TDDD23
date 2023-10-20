@@ -2905,7 +2905,7 @@ TextureImporter:
         width: 16
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2926,7 +2926,7 @@ TextureImporter:
         width: 16
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2934,6 +2934,27 @@ TextureImporter:
       bones: []
       spriteID: fd1ac54e4857845fdb50ca79afc59832
       internalID: -1292033628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bloody Spike
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 48
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f66c970f504ab472b9acb7878cd911d0
+      internalID: 1841801913
       vertices: []
       indices: 
       edges: []
@@ -2950,7 +2971,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Dungeon Tile Set_115: 1130525629
-      Dungeon Tile Set_59: -827756151
+      Dungeon Tile Set_111: -518547636
       Dungeon Tile Set_32: 64673132
       Dungeon Tile Set_122: -1297648361
       Dungeon Tile Set_105: 542619468
@@ -3061,6 +3082,7 @@ TextureImporter:
       Dungeon Tile Set_125: -2090556399
       Dungeon Tile Set_73: 1764011848
       Dungeon Tile Set_8: 1867465554
+      Bloody Spike: 1841801913
       Dungeon Tile Set_0: 399075241
       Dungeon Tile Set_93: 2014301084
       Dungeon Tile Set_10: -392653820
@@ -3083,7 +3105,7 @@ TextureImporter:
       Dungeon Tile Set_109: 606769642
       Dungeon Tile Set_128: -1499079179
       Dungeon Tile Set_40: -609963260
-      Dungeon Tile Set_111: -518547636
+      Dungeon Tile Set_59: -827756151
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

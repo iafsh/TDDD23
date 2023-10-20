@@ -7,15 +7,23 @@ public class Jump : MonoBehaviour
 {
     [SerializeField] private float jumpPower;
     [SerializeField] private AudioSource jumpSoundEffect;
-    private bool OnAir=true;
-    
+
+    private bool OnAir = true;
+
     void Update()
     {
-
-        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space )) && !OnAir)
+        if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && !OnAir)
         {
             jumpSoundEffect.Play();
-            this.GetComponent<Rigidbody2D>().AddForce(jumpPower*Vector2.up,ForceMode2D.Impulse);
+            this.GetComponent<Rigidbody2D>().AddForce(jumpPower * Vector2.up, ForceMode2D.Impulse);
+        }
+
+        if (GetComponent<Rigidbody2D>().velocity.y > jumpPower)
+        {
+            GetComponent<Rigidbody2D>().velocity = new Vector2(
+                GetComponent<Rigidbody2D>().velocity.x,
+                jumpPower
+            );
         }
     }
 
@@ -52,5 +60,5 @@ public class Jump : MonoBehaviour
             return OnAir;
         }
     }
-    
+
 }
