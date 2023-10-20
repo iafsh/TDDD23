@@ -1,18 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if (other.CompareTag("Spike"))
+        {
+            transform.position = new Vector2(
+                transform.position.x,
+                transform.position.y - 0.5f
+            );
+
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            GetComponent<Animator>().Play("die");
+            Invoke(nameof(RestartScene), 1);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void RestartScene()
     {
-        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
