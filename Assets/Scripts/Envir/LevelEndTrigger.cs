@@ -18,6 +18,8 @@ public class LevelEndTrigger : MonoBehaviour
             if (doorBounds.Contains(playerBounds.min) && doorBounds.Contains(playerBounds.max))
             {
                 levelPassSoundEffect.Play();
+                collision.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                collision.GetComponent<Animator>().Play("teleport");
                 StartCoroutine(LoadNextSceneAfterAudio());
             }
         }
