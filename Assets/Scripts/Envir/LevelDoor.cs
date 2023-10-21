@@ -28,7 +28,7 @@ public class LevelDoor : MonoBehaviour
                 if (!isInvoking)
                 {
                     isInvoking = true;
-                    Invoke(nameof(Teleport), 2);
+                    Invoke(nameof(Teleport), 1);
                 }
             }
             else
