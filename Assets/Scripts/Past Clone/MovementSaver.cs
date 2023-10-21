@@ -31,7 +31,10 @@ public class MovementSaver : MonoBehaviour
 
     #endregion
 
-    
+    private CameraFilterSwitcher cameraFilterSwitcher;
+
+
+
     void Awake()
     {
         playerTransform=GameObject.Find("Player").transform;
@@ -39,6 +42,9 @@ public class MovementSaver : MonoBehaviour
         cloneSpawnerSC = FindObjectOfType<CloneSpawner>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         WalkSC = FindObjectOfType<Walk>();
+
+        cameraFilterSwitcher = FindObjectOfType<CameraFilterSwitcher>();
+
     }
 
     void Update() {
@@ -46,6 +52,7 @@ public class MovementSaver : MonoBehaviour
         if (cloneSpawnerSC.CloneisMoving)
         {
             isRecording = false;
+
         }
         
         if (Input.GetKeyDown(KeyCode.Q))
@@ -56,11 +63,15 @@ public class MovementSaver : MonoBehaviour
                 isRecording = false;
                 RecordingTimePeriod = Time.time - startingTimeCounter;
                 cloneSpawnerSC.GobackToStartPosition();
+                cameraFilterSwitcher.SwitchFilter();
+
             }
             else
             {
                 isRecording = true;
                 startingTimeCounter=Time.time;
+                cameraFilterSwitcher.SwitchFilter();
+
             }
         }
     }

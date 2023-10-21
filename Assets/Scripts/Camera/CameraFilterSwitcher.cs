@@ -24,7 +24,7 @@ public class CameraFilterSwitcher : MonoBehaviour
         }
     }
 
-    private void SwitchFilter()
+    public void SwitchFilter()
     {
         currentProfileIndex = (currentProfileIndex + 1) % profiles.Length;
         volume.profile = profiles[currentProfileIndex];

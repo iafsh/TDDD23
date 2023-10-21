@@ -20,11 +20,15 @@ public class CloneSpawner : MonoBehaviour
     public bool CloneisMoving = false;
     private SpriteRenderer spriteRenderer;
 
+    private CameraFilterSwitcher cameraFilterSwitcher;
+
     private void Awake()
     {
         movementSaverSC = FindObjectOfType<MovementSaver>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         disappearClone();
+
+        cameraFilterSwitcher = FindObjectOfType<CameraFilterSwitcher>();
     }
 
     void Update()
@@ -110,6 +114,7 @@ public class CloneSpawner : MonoBehaviour
         disappearClone();
         CloneisMoving = false;
         movementSaverSC.EraseData = true;
+        cameraFilterSwitcher.SwitchFilter();
 
     }
 
@@ -123,6 +128,6 @@ public class CloneSpawner : MonoBehaviour
     {
         GetComponent<Collider2D>().enabled = false;
         GetComponent<SpriteRenderer>().enabled =false;
-        
+
     }
 }
