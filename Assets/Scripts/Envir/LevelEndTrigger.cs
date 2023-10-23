@@ -5,6 +5,15 @@ using UnityEngine.SceneManagement;
 public class LevelEndTrigger : MonoBehaviour
 {
     [SerializeField] private AudioSource levelPassSoundEffect;
+    [SerializeField] int currentLevelNumber = -1;
+
+    private void Start()
+    {
+        if (currentLevelNumber == -1)
+        {
+            currentLevelNumber = SceneManager.GetActiveScene().buildIndex;
+        }
+    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -40,14 +49,13 @@ public class LevelEndTrigger : MonoBehaviour
         int nextSceneIndex = (currentSceneIndex + 1) % sceneCount;
 
         // Update the unlocked level in PlayerPrefs
-        if (currentSceneIndex < sceneCount)
+        if (PlayerPrefs.GetInt("UnlockedLevel", 1) == currentLevelNumber)
         {
-            PlayerPrefs.SetInt("UnlockedLevel", PlayerPrefs.GetInt("UnlockedLevel", 1) + 1);
+            PlayerPrefs.SetInt("UnlockedLevel", currentLevelNumber + 1);
+            PlayerPrefs.Save();
         }
 
         // Load the next scene
         SceneManager.LoadScene(nextSceneIndex);
     }
-
-
 }

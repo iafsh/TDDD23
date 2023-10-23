@@ -5,13 +5,37 @@ using UnityEngine.SceneManagement;
 public class LevelDoor : MonoBehaviour
 {
     [SerializeField] string sceneName;
+    [SerializeField] int levelNumber = -1;
+    [SerializeField] GameObject openedDoor;
+    [SerializeField] GameObject closedDoor;
 
     bool isInvoking = false;
     GameObject player;
+    BoxCollider2D boxCollider2D;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        boxCollider2D = GetComponent<BoxCollider2D>();
+
+        PlayerPrefs.SetInt("UnlockedLevel", PlayerPrefs.GetInt("UnlockedLevel", 2));
+
+        if (levelNumber == -1 || levelNumber <= PlayerPrefs.GetInt("UnlockedLevel", 1))
+        {
+            boxCollider2D.enabled = true;
+
+            openedDoor.SetActive(true);
+            closedDoor.SetActive(false);
+        }
+        else
+        {
+            boxCollider2D.enabled = false;
+
+            openedDoor.SetActive(false);
+            closedDoor.SetActive(true);
+        }
+
+        PlayerPrefs.Save();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
