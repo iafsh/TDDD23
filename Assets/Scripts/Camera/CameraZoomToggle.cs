@@ -8,14 +8,12 @@ public class CameraZoomToggle : MonoBehaviour
     [SerializeField] private float zoomSpeed = 6f;
 
     private float defaultSize;
-    private Transform playerTransform;
     private Camera mainCamera;
     private bool isZoomedOut = false;
 
     private void Start()
     {
         mainCamera = GetComponent<Camera>();
-        playerTransform = GameObject.Find("Player").transform;
 
         defaultSize = mainCamera.orthographicSize;
     }
