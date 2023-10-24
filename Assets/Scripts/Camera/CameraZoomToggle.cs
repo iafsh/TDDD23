@@ -4,28 +4,20 @@ using UnityEngine;
 
 public class CameraZoomToggle : MonoBehaviour
 {
-    [SerializeField] private float defaultSize = 4f;
-    [SerializeField] private float zoomedOutSize = 8f;
-    [SerializeField] private float zoomSpeed = 2f;
-    [SerializeField] private Transform playerTransform;
-    [SerializeField] private Vector3 cameraOffset = new Vector3(0, 2, 0);
-    [SerializeField] private AudioClip zoomingSoundEffect; // New field for the sound effect
+    [SerializeField] private float zoomedOutSize = 5f;
+    [SerializeField] private float zoomSpeed = 6f;
 
+    private float defaultSize;
+    private Transform playerTransform;
     private Camera mainCamera;
-    private AudioSource audioSource; // To play the sound effect
     private bool isZoomedOut = false;
 
     private void Start()
     {
         mainCamera = GetComponent<Camera>();
-        audioSource = gameObject.AddComponent<AudioSource>(); // Add an AudioSource component
-        audioSource.clip = zoomingSoundEffect; // Assign the sound effect to the AudioSource
-        audioSource.loop = false; // Ensure the sound doesn't loop
+        playerTransform = GameObject.Find("Player").transform;
 
-        if (playerTransform == null)
-        {
-            playerTransform = GameObject.Find("Player").transform;
-        }
+        defaultSize = mainCamera.orthographicSize;
     }
 
     private void Update()
@@ -36,11 +28,6 @@ public class CameraZoomToggle : MonoBehaviour
         }
     }
 
-    private void LateUpdate()
-    {
-        mainCamera.transform.position = new Vector3(playerTransform.position.x, playerTransform.position.y, mainCamera.transform.position.z);
-    }
-
     private void ToggleZoom()
     {
         if (isZoomedOut)
@@ -49,7 +36,7 @@ public class CameraZoomToggle : MonoBehaviour
         }
         else
         {
-            StartCoroutine(Zoom(zoomedOutSize));
+            StartCoroutine(Zoom(defaultSize + zoomedOutSize));
         }
         isZoomedOut = !isZoomedOut;
     }
@@ -59,16 +46,11 @@ public class CameraZoomToggle : MonoBehaviour
         float startZoom = mainCamera.orthographicSize;
         float t = 0;
 
-        audioSource.Play(); // Play the zooming sound effect
-
         while (t < 1)
         {
             t += Time.deltaTime * zoomSpeed;
             mainCamera.orthographicSize = Mathf.Lerp(startZoom, targetZoom, t);
-            mainCamera.transform.position = new Vector3(playerTransform.position.x, playerTransform.position.y, mainCamera.transform.position.z);
             yield return null;
         }
-
-        audioSource.Stop(); // Stop the zooming sound effect
     }
 }

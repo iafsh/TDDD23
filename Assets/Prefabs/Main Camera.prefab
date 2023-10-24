@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4903722312165955937}
   - component: {fileID: 4903722312165955997}
   - component: {fileID: 1114414986}
+  - component: {fileID: 1343038214592688267}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -99,8 +100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothSpeed: 0.125
-  target: {fileID: 0}
-  Walls: {fileID: 0}
 --- !u!61 &1114414986
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -127,3 +126,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 22.48772, y: 10.877842}
   m_EdgeRadius: 0
+--- !u!114 &1343038214592688267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4903722312165955936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff350aff27d7ec4088ff46a27ed757b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoomedOutSize: 5
+  zoomSpeed: 6
