@@ -53,12 +53,14 @@ public class LevelDoor : MonoBehaviour
                 {
                     isInvoking = true;
                     Invoke(nameof(Teleport), 1);
+                    player.GetComponent<Animator>().Play("opacity");
                 }
             }
             else
             {
                 isInvoking = false;
                 CancelInvoke(nameof(Teleport));
+                player.GetComponent<Animator>().Play("idle");
             }
         }
     }
@@ -69,6 +71,7 @@ public class LevelDoor : MonoBehaviour
         {
             isInvoking = false;
             CancelInvoke(nameof(Teleport));
+            player.GetComponent<Animator>().Play("idle");
         }
     }
 
