@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Jump : MonoBehaviour
@@ -72,17 +73,20 @@ public class Jump : MonoBehaviour
     private void GroundDetection()
     {
         Collider2D coll = GetComponent<Collider2D>();
-        RaycastHit2D hit = Physics2D.BoxCast(
+        List<RaycastHit2D> hits = Physics2D.BoxCastAll(
             coll.bounds.center,
             coll.bounds.size,
             0f,
             Vector2.down,
             1f
-        );
+        ).ToList();
 
-        if (hit.transform &&
-            (hit.transform.gameObject.layer == 7 ||
-             hit.transform.gameObject.CompareTag("Clone"))
+        if (
+            hits.Count > 0 &&
+            (
+                hits.FindAll(hit => hit.transform.gameObject.layer == 7).Count > 0 ||
+                hits.FindAll(hit => hit.transform.CompareTag("Clone")).Count > 0
+            )
         )
         {
             OnAir = false;

@@ -214,6 +214,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 803a1b32e4150fc4fb41201decfd46fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ground:
+    serializedVersion: 2
+    m_Bits: 192
   jumpPower: 30
   jumpSoundEffect: {fileID: 6103016572382474919}
 --- !u!95 &6103016572382474915
