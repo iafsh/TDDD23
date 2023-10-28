@@ -13718,6 +13718,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ButtonedElevator
       objectReference: {fileID: 0}
+    - target: {fileID: 3240756476240419827, guid: 020a719eb54894bfe95fd3900f9530cb, type: 3}
+      propertyPath: activateByIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3240756476240419827, guid: 020a719eb54894bfe95fd3900f9530cb, type: 3}
+      propertyPath: activateBySingleButton
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8359786841890901259, guid: 020a719eb54894bfe95fd3900f9530cb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.7

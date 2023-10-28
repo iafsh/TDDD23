@@ -10,6 +10,7 @@ public class ButtonedElevator : MonoBehaviour
     [SerializeField] GameObject elevator;
     [SerializeField] float elevation = 5f;
     [SerializeField] float elevationSpeed = 5f;
+    [SerializeField] int activateByIndex = -1;
 
     Vector2 startPosition = Vector2.zero;
     bool[] isElevating = { false, false };
@@ -21,7 +22,9 @@ public class ButtonedElevator : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!isElevating.Contains(false))
+        if (
+          (activateByIndex == -1 && !isElevating.Contains(false)) || isElevating[activateByIndex]
+        )
         {
             if (elevator.transform.position.y < startPosition.y + elevation)
             {
