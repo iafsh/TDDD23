@@ -92,6 +92,9 @@ public class MovementSaver : MonoBehaviour
             RecordingTimePeriod = savingTimeLimit;
             cloneSpawnerSC.GobackToStartPosition();
 
+            // Switch back to the original filter when time limit is reached
+            cameraFilterSwitcher.SwitchFilter(0);
+
         }
         else
         {
@@ -101,6 +104,7 @@ public class MovementSaver : MonoBehaviour
             //movementList.Add(playerTransform.position);
         }
     }
+
 
     private void FlipDetection()
     {
