@@ -22,11 +22,11 @@ public class Jump : MonoBehaviour
     void Update()
     {
         GroundDetection();
-        
+
         if ((Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space)) && !OnAir)
         {
             jumpSoundEffect.Play();
-            this.GetComponent<Rigidbody2D>().AddForce(jumpPower * Vector2.up, ForceMode2D.Impulse);
+            GetComponent<Rigidbody2D>().AddForce(jumpPower * Vector2.up, ForceMode2D.Impulse);
         }
 
         if (GetComponent<Rigidbody2D>().velocity.y > jumpPower)
@@ -40,7 +40,7 @@ public class Jump : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
+
     }
 
     // private void OnCollisionEnter2D(Collision2D col)
@@ -71,12 +71,19 @@ public class Jump : MonoBehaviour
 
     private void GroundDetection()
     {
-        //RaycastHit2D hit=Physics2D.Raycast(transform.position,Vector2.down,5f);
-        Vector2 a = GetComponent<Collider2D>().bounds.size;
-        RaycastHit2D hit = Physics2D.BoxCast(transform.position, a, 0f, Vector2.down,5);
+        Collider2D coll = GetComponent<Collider2D>();
+        RaycastHit2D hit = Physics2D.BoxCast(
+            coll.bounds.center,
+            coll.bounds.size,
+            0f,
+            Vector2.down,
+            1f
+        );
+
         if (hit.transform &&
-            (hit.transform.gameObject.layer==7 ||
-             hit.transform.gameObject.layer == 6))
+            (hit.transform.gameObject.layer == 7 ||
+             hit.transform.gameObject.CompareTag("Clone"))
+        )
         {
             OnAir = false;
         }
@@ -84,8 +91,7 @@ public class Jump : MonoBehaviour
         {
             OnAir = true;
         }
-        print(OnAir);
-        Debug.DrawRay(transform.position,Vector2.down*5);
-        
+
+        Debug.DrawRay(transform.position, Vector2.down * 1);
     }
 }
