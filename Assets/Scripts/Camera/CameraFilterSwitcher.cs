@@ -3,13 +3,18 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class CameraFilterSwitcher : MonoBehaviour
 {
-    public PostProcessProfile[] profiles; // Drag your profiles here in the Inspector
+    [Tooltip("Drag your profiles here...")]
+    public PostProcessProfile[] profiles;
+
+    private CanvasManager canvasManager;
     private PostProcessVolume volume;
     private int currentProfileIndex = 0;
 
     private void Start()
     {
+        canvasManager = FindObjectOfType<CanvasManager>();
         volume = GetComponent<PostProcessVolume>();
+
         if (profiles.Length > 0)
         {
             volume.profile = profiles[currentProfileIndex];
@@ -24,9 +29,17 @@ public class CameraFilterSwitcher : MonoBehaviour
         }
     }
 
+    public void SwitchFilter(int index)
+    {
+        currentProfileIndex = index;
+        volume.profile = profiles[currentProfileIndex];
+
+        if (index == 1) canvasManager.SetCloneHUDActive(true);
+        else canvasManager.SetCloneHUDActive(false);
+    }
+
     public void SwitchFilter()
     {
-        currentProfileIndex = (currentProfileIndex + 1) % profiles.Length;
-        volume.profile = profiles[currentProfileIndex];
+        SwitchFilter((currentProfileIndex + 1) % profiles.Length);
     }
 }

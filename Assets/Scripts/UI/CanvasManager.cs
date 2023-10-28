@@ -5,6 +5,7 @@ using UnityEngine;
 public class CanvasManager : MonoBehaviour
 {
     [SerializeField] GameObject exitMenu;
+    [SerializeField] GameObject cloneHUD;
 
     private float timeScale = 1f;
 
@@ -13,6 +14,7 @@ public class CanvasManager : MonoBehaviour
         timeScale = Time.timeScale;
 
         SetExitMenuActive(false);
+        SetCloneHUDActive(false);
     }
 
     void Update()
@@ -28,5 +30,10 @@ public class CanvasManager : MonoBehaviour
         Time.timeScale = value ? 0f : timeScale;
 
         exitMenu.SetActive(value);
+    }
+
+    public void SetCloneHUDActive(bool value)
+    {
+        cloneHUD.SetActive(value);
     }
 }

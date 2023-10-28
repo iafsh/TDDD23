@@ -114,7 +114,7 @@ public class CloneSpawner : MonoBehaviour
         disappearClone();
         CloneisMoving = false;
         movementSaverSC.EraseData = true;
-        cameraFilterSwitcher.SwitchFilter();
+        cameraFilterSwitcher.SwitchFilter(0);
 
     }
 

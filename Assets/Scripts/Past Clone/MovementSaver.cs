@@ -63,14 +63,14 @@ public class MovementSaver : MonoBehaviour
                 isRecording = false;
                 RecordingTimePeriod = Time.time - startingTimeCounter;
                 cloneSpawnerSC.GobackToStartPosition();
-                cameraFilterSwitcher.SwitchFilter();
+                cameraFilterSwitcher.SwitchFilter(0);
 
             }
             else
             {
                 isRecording = true;
                 startingTimeCounter=Time.time;
-                cameraFilterSwitcher.SwitchFilter();
+                cameraFilterSwitcher.SwitchFilter(1);
 
             }
         }
