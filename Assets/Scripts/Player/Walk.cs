@@ -14,12 +14,12 @@ public class Walk : MonoBehaviour
     private bool towardRight = true;
     private Rigidbody2D rb;
     private Animator animator;
-    void Start()
+    void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        transform.position = new Vector3(-20, 3, transform.position.z);
+        transform.position = new Vector3(-20, -5, transform.position.z);
     }
 
     // Update is called once per frame
