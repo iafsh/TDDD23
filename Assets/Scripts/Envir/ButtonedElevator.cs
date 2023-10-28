@@ -23,7 +23,7 @@ public class ButtonedElevator : MonoBehaviour
     void FixedUpdate()
     {
         if (
-          (activateByIndex == -1 && !isElevating.Contains(false)) || isElevating[activateByIndex]
+          (activateByIndex == -1 && !isElevating.Contains(false)) || (activateByIndex!=-1 && isElevating[activateByIndex])
         )
         {
             if (elevator.transform.position.y < startPosition.y + elevation)
