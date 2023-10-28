@@ -85,7 +85,7 @@ public class CloneSpawner : MonoBehaviour
             {
                 spriteRenderer.flipX = true;
             }
-            yield return new WaitForSeconds(timeBetweenFrames * 2); // TODO... WTF
+            yield return new WaitForSeconds(timeBetweenFrames); // TODO... WTF
 
         }
 
