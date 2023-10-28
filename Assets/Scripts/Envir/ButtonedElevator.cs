@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -10,7 +12,7 @@ public class ButtonedElevator : MonoBehaviour
     [SerializeField] float elevationSpeed = 5f;
 
     Vector2 startPosition = Vector2.zero;
-    bool isElevating = false;
+    bool[] isElevating = { false, false };
 
     void Start()
     {
@@ -19,7 +21,7 @@ public class ButtonedElevator : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isElevating)
+        if (!isElevating.Contains(false))
         {
             if (elevator.transform.position.y < startPosition.y + elevation)
             {
@@ -57,13 +59,13 @@ public class ButtonedElevator : MonoBehaviour
         }
     }
 
-    public void StartElevating()
+    public void StartElevating(int index)
     {
-        isElevating = true;
+        isElevating[index] = true;
     }
 
-    public void StopElevating()
+    public void StopElevating(int index)
     {
-        isElevating = false;
+        isElevating[index] = false;
     }
 }
