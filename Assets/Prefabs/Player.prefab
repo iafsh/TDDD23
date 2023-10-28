@@ -214,9 +214,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 803a1b32e4150fc4fb41201decfd46fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ground:
-    serializedVersion: 2
-    m_Bits: 192
   jumpPower: 30
   jumpSoundEffect: {fileID: 6103016572382474919}
 --- !u!95 &6103016572382474915
@@ -325,9 +322,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fe0b1f9aeb45b41b089175aeeabd5d95, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1910d78ef392d4959bac6cfa7d9913d3, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
